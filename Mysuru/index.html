@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <title>Date-based Activities</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header with background image -->
+    <header>
+        <h1>Welcome to Mysuru</h1>
+        <p>Your journey to discovering the beauty of Dasara begins here.</p>
+    </header>
+
+    <section>
+        <h2>About Dasara</h2>
+        <p>The Mysore Dasara traces its origins to the Vijayanagara Empire in the 15th century. The festival was later adapted and continued by the Wadiyar dynasty, who ruled the Kingdom of Mysore. According to legend, the celebration is dedicated to the victory of Goddess Chamundeshwari (an incarnation of Durga) over the demon Mahishasura, symbolizing the triumph of good over evil.</p>
+    </section>
+
+    <!-- Main content with Date-based Activity Picker -->
+    <main>
+
+        <div class="activity-container">
+            <h1 class="activity-heading">Select a Date to See Activities</h1>
+            <input type="date" id="datePicker" class="styled-date-input">
+            <div id="activity"></div>
+
+    </main>
+
+    <script>
+        const activities = {
+            "2024-10-07": "activities/monday.html",      // Yoga Class link
+            "2024-10-08": "activities/tuesday.html", // Cooking Workshop link
+            "2024-10-09": "activities/wednesday.html", 
+            "2024-10-10": "activities/thursday.html",
+            "2024-10-11": "activities/friday.html",
+            "2024-10-12": "activities/saturday.html",
+            "2024-10-13": "activities/sunday.html",
+            "2024-10-14": "activities/end.html",   // Mountain Hike link
+            // Add more date-activity pairs with local files
+        };
+    
+        document.getElementById('datePicker').addEventListener('change', function() {
+            const selectedDate = this.value;
+            const activityURL = activities[selectedDate];
+            if (activityURL) {
+                window.location.href = activityURL; // Redirect to the local HTML file
+            } else {
+                document.getElementById('activity').innerHTML = "No activity scheduled for this date.";
+            }
+        });
+    </script>
+    
+
+</body>
+</html>
